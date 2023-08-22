@@ -1,11 +1,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { InjectManifest } = require("workbox-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
-const { InjectManifest } = require("workbox-webpack-plugin");
-const WorkboxPlugin = require("workbox-webpack-plugin");
-
-
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -19,6 +16,7 @@ module.exports = () => {
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
+      new CleanWebpackPlugin(), // Clean the output directory before each build
       new HtmlWebpackPlugin({
         template: "./index.html",
         title: "JATE",
@@ -46,12 +44,15 @@ module.exports = () => {
         ],
       }),
     ],
-// Added and configured workbox plugins for a service worker and manifest file
     module: {
       rules: [
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
         },
         {
           test: /\.m?js$/,
@@ -67,7 +68,6 @@ module.exports = () => {
             },
           },
         },
-        // Added CSS loaders and babel to webpack.
       ],
     },
   };
