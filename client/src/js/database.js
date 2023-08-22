@@ -11,25 +11,37 @@ const initdb = async () =>
       console.log('jate database created');
     },
   });
+// Added logic to a method that accepts some content and adds it to the database
+export const putDb = async (content) => {
+  console.log('PUT to database');
 
-const putDb = async (content) => {
-  const db = await initdb();
-  await db.add('jate', { content, timestamp: new Date() });
-  console.log('Content added to the database');
+  const contactDb = await openDB('jate', 1);
+
+  const tx = contactDb.transaction('jate', 'readwrite');
+
+  const store = tx.objectStore('jate');
+
+  const request = store.put({ id: 1, value: content });
+
+  const result = await request;
+  console.log('🚀 - data saved to the database', result);
+
 };
 
-const getDb = async () => {
-  const db = await initdb();
-  return db.getAll('jate');
-};
+//Added logic for a method that gets all the content from the database
+export const getDb = async () => {
+  console.log('GET from the database');
 
-window.addEventListener('DOMContentLoaded', async () => {
-  const allContent = await getDb();
-  if (allContent.length > 0) {
-    const latestContent = allContent[allContent.length - 1].content;
-    const textArea = document.getElementById('textArea');
-    textArea.value = latestContent;
-  }
-});
+  const contactDb = await openDB('jate', 1);
 
-initdb();
+  const tx = contactDb.transaction('jate', 'readonly');
+
+  const store = tx.objectStore('jate');
+
+  const request = store.getAll();
+
+  const result = await request;
+  console.log('result.value', result);
+
+  return result?.value;
+}
