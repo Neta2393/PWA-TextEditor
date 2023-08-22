@@ -12,23 +12,24 @@ const initdb = async () =>
     },
   });
 
-export const putDb = async (content) => {
+const putDb = async (content) => {
   const db = await initdb();
-  const tx = db.transaction('jate', 'readwrite');
-  const store = tx.objectStore('jate');
-  await store.add(content);
-  await tx.done;
-  console.log('Content added to database:', content);
+  await db.add('jate', { content, timestamp: new Date() });
+  console.log('Content added to the database');
 };
 
-export const getDb = async () => {
+const getDb = async () => {
   const db = await initdb();
-  const tx = db.transaction('jate', 'readonly');
-  const store = tx.objectStore('jate');
-  const content = await store.getAll();
-  await tx.done;
-  console.log('Content retrieved from database:', content);
-  return content;
+  return db.getAll('jate');
 };
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const allContent = await getDb();
+  if (allContent.length > 0) {
+    const latestContent = allContent[allContent.length - 1].content;
+    const textArea = document.getElementById('textArea');
+    textArea.value = latestContent;
+  }
+});
 
 initdb();
