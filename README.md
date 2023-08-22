@@ -4,13 +4,16 @@
 
 ## Description
 
+Text Editor that can be used on and offline and console logs information that is input. 
+
 
 ## Table of Contents:
   * [User-Story](#user-story)
   * [Acceptance Criteria](#acceptance-criteria)
   * [Installation](#installation)
   * [Screenshots](#screenshots)
-  * [Walkthrough-Video](#walkthrough-video)
+  * [Sources](#sources)
+  * [Challenges](#challenges)
   * [Test](#test)
   * [GitHub](#github)
 
@@ -51,3 +54,27 @@ THEN I should have my static assets pre cached upon loading along with subsequen
 WHEN I deploy to Heroku
 THEN I should have proper build scripts for a webpack application
 ```
+
+## Installation
+
+To install the code I began by cloning the starter code that was provided
+
+
+## Screenshots
+
+![PWA2](<Screenshot (40).png>)
+![PWA](<Screenshot (41).png>)
+
+## Sources
+https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
+
+https://www.freecodecamp.org/news/build-a-pwa-from-scratch-with-html-css-and-javascript/
+
+https://stackoverflow.com/questions/59561657/how-can-i-ignore-dist-folder-in-gitignore-file
+
+https://docs.npmjs.com/cli/v7/configuring-npm/npmrc
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/next
+
+## Challenges
+
