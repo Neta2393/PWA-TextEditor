@@ -4,7 +4,9 @@
 
 ## Description
 
-Text Editor that can be used on and offline and console logs information that is input. 
+Text Editor that can be used on and offline and console logs information that is input. It utilizes db, Webpack, PWA and is locally cached. The app is deployed on Heroku at: https://benetheapwatexteditor-ceb32b8b6a4e.herokuapp.com/
+Github Repo: https://github.com/Neta2393/PWA-TextEditor
+
 
 
 ## Table of Contents:
@@ -14,7 +16,8 @@ Text Editor that can be used on and offline and console logs information that is
   * [Screenshots](#screenshots)
   * [Sources](#sources)
   * [Challenges](#challenges)
-  * [Test](#test)
+  * [Tests](#tests)
+  * [Contribute](#contribute)
   * [GitHub](#github)
 
 ## User Story
@@ -61,9 +64,10 @@ To install the code I began by cloning the starter code that was provided
 
 
 ## Screenshots
+![Alt text](<Images/Screenshot (41).png>)
 
-![PWA2](<Screenshot (40).png>)
-![PWA](<Screenshot (41).png>)
+![Alt text](<Images/Screenshot (40).png>)
+
 
 ## Sources
 https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
@@ -77,4 +81,18 @@ https://docs.npmjs.com/cli/v7/configuring-npm/npmrc
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/next
 
 ## Challenges
+
+At first glance I thought my biggest challenge would be deploying to heroku. But my biggest challenge was trying to generate the header and image in the webpage. When I opened it locally in the dist file it would work but when I would open it on the deployed app it would not. I will continue to work on it and break the code down to see if I can fix it. 
+
+## Tests
+npm run start to see if there were any errors in the terminal
+
+git push heroku main seemed to be a test as well to check how the page built out
+
+## Contribute
+to contribute please contact benetheahardin@yahoo.com
+
+## Github
+This repo and others can be found at https://github.com/Neta2393
+
 
