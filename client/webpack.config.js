@@ -4,15 +4,18 @@ const path = require("path");
 const { InjectManifest } = require("workbox-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
 
-// DONE: Add and configure workbox plugins for a service worker and manifest file
-// DONE: Add CSS loaders and babel to webpack.
+//Added and configure workbox plugins for a service worker and manifest file
+// Added CSS loaders and babel to webpack.
 
 module.exports = () => {
   return {
     mode: "development",
     entry: {
-      main: "./src/js/index.js",
-      install: "./src/js/install.js",
+      main: './src/js/index.js',
+      install: './src/js/install.js',
+      editor: './src/js/editor.js',
+      database: './src/js/database.js',
+      header: './src/js/header.js'
     },
     output: {
       filename: "[name].bundle.js",
