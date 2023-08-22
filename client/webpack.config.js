@@ -4,18 +4,15 @@ const path = require("path");
 const { InjectManifest } = require("workbox-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
 
-//Added and configure workbox plugins for a service worker and manifest file
-// Added CSS loaders and babel to webpack.
+// DONE: Add and configure workbox plugins for a service worker and manifest file
+// DONE: Add CSS loaders and babel to webpack.
 
 module.exports = () => {
   return {
     mode: "development",
     entry: {
-      main: './src/js/index.js',
-      install: './src/js/install.js',
-      editor: './src/js/editor.js',
-      database: './src/js/database.js',
-      header: './src/js/header.js'
+      main: "./src/js/index.js",
+      install: "./src/js/install.js",
     },
     output: {
       filename: "[name].bundle.js",
@@ -28,14 +25,14 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
-        swDest: "src-sw.js",
+        swDest: "service-worker.js",
       }),
       new WebpackPwaManifest({
         name: "Just Another Text Editor",
         short_name: "JATE",
         description: "A text editor for online and offline use.",
-        background_color: "#225ca3",
-        theme_color: "#225ca3",
+        background_color: "#7eb4e2",
+        theme_color: "#7eb4e2",
         start_url: "/",
         publicPath: "./",
         fingerprints: false,
